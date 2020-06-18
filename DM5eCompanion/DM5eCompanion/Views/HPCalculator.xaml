@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DM5eCompanion.Views.HPCalculator">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="Firebrick">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <FlexLayout Direction="Row"
+                                Grid.Column="0">
+                        <Picker x:Name="classPicker"
+                                Title="Select Starting Class"
+                                TitleColor="Black"
+                                SelectedIndex="-1"
+                                SelectedIndexChanged="classPicker_SelectedIndexChanged"
+                                ItemDisplayBinding="{Binding Title}"
+                                FontSize="Subtitle">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Item 1</x:String>
+                                    <x:String>Item 2</x:String>
+                                    <x:String>Item 3</x:String>
+                                    <x:String>Item 4</x:String>
+                                    <x:String>Item 5</x:String>
+                                    <x:String>Item 6</x:String>
+                                    <x:String>Item 7</x:String>
+                                    <x:String>Item 8</x:String>
+                                    <x:String>Item 9</x:String>
+                                    <x:String>Item 10</x:String>
+                                    <x:String>Item 11</x:String>
+                                    <x:String>Item 12</x:String>
+                                    <x:String>Item 13</x:String>
+                                    <x:String>Item 14</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </FlexLayout>
+                    <FlexLayout JustifyContent="Center"
+                                Grid.Column="1">
+                        <Label Text="Tough Feat" HorizontalTextAlignment="Center" 
+                               VerticalTextAlignment="Center" HorizontalOptions="Start" 
+                               Grid.Column="1" TextColor="Black" FontSize="Medium"/>
+                        <CheckBox x:Name="toughFeat" />
+                    </FlexLayout>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <FlexLayout JustifyContent="Start"
+                                Grid.Column="0">
+                        <Picker TitleColor="Black"
+                            FlexLayout.AlignSelf="Start"
+                            FontSize="Body">
+                            <Picker.Items>
+                                <x:String>Con Modifier:</x:String>
+                                <x:String>Con Score:</x:String>
+                            </Picker.Items>
+                            <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                        </Picker>
+                        <Entry HorizontalOptions="FillAndExpand" WidthRequest="80" Keyboard="Numeric" MaxLength="2"/>
+                    </FlexLayout>
+                    <FlexLayout JustifyContent="Center"
+                                Grid.Column="1">
+                        <Label Text="Hill Dwarf" HorizontalTextAlignment="Center" 
+                               VerticalTextAlignment="Center" HorizontalOptions="Start" 
+                               Grid.Column="1" TextColor="Black" FontSize="Medium"/>
+                        <CheckBox x:Name="hillDwarf" />
+                    </FlexLayout>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label IsVisible="False" Grid.Column="0" VerticalOptions="Center" x:Name="displayLabel" Text="1" HorizontalTextAlignment="End" Margin="0,0,10,0" FontSize="Title" />
+                    <Label IsVisible="False" Grid.Column="0" VerticalOptions="Center" x:Name="infoText" HorizontalTextAlignment="Start" Margin="10,0,0,0" FontSize="Body" TextColor="Black"/>
+                    <Stepper IsVisible="False" Grid.Column="1" HorizontalOptions="End" x:Name="_classStepper" Value="1" Minimum="1" Maximum="20" Increment="1" ValueChanged="Stepper_ValueChanged" />
+                </Grid>
+                <!--Some kind of HR or line break here-->
+                <FlexLayout
+                JustifyContent="End"
+                x:Name="_FirstHpStack"
+                Direction="Column">
+                    <FlexLayout Direction="Row"
+                            JustifyContent="End"
+                            HeightRequest="40"
+                            IsVisible="False"
+                            x:Name="levelLine">
+                        <Label Text= "Average HP" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"  />
+                        <CheckBox HorizontalOptions="End" x:Name="averageHP" />
+                    </FlexLayout>
+                </FlexLayout>
+                <FlexLayout JustifyContent="Center">
+                    <Button BackgroundColor="Gray" Text="     + Add Another Class     "
+                            Margin="0,20,0,20" Clicked="Button_Clicked">
+                        <Button.Resources>
+                            <Style TargetType="Button">
+                                <Setter Property="CornerRadius" Value="25"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    
+                </FlexLayout>
+            </StackLayout>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>
